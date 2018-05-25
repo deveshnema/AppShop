@@ -168,15 +168,75 @@ class AppCell : UICollectionViewCell {
 
 
 
+class LargeCategoryCell : CategoryCell {
+    private let largeAppCellid = "largeAppCellid"
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: frame.height - 40)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellid, for: indexPath) as! LargeAppCell
+    }
+    
+    override func setupViews() {
+        super.setupViews()
+        appsCollectionView.register(LargeAppCell.self, forCellWithReuseIdentifier: largeAppCellid)
+    }
+}
+
+
+class LargeAppCell : AppCell {
+    override func setupViews() {
+        addSubview(imageView)
+        
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+    }
+}
 
 
 
+class HeaderCell : CategoryCell {
+    private let bannerCellid = "bannerCellid"
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width/2 + 50, height: frame.height)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellid, for: indexPath) as! BannerCell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    override func setupViews() {
+        appsCollectionView.register(BannerCell.self, forCellWithReuseIdentifier: bannerCellid)
+        appsCollectionView.delegate = self
+        appsCollectionView.dataSource = self
+        
+        addSubview(appsCollectionView)
+        appsCollectionView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        appsCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        appsCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        appsCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+    }
+}
 
-
-
-
-
-
+class BannerCell : AppCell {
+    override func setupViews() {
+        addSubview(imageView)
+        imageView.layer.cornerRadius = 0
+        imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
+        imageView.layer.borderWidth = 0.5
+        imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+    }
+}
 
 
 
