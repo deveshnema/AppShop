@@ -14,5 +14,8 @@ An iOS 11 App-Store style App to show "Featured Apps"
 - Decodable
 
 
-
 ## Screenshots
+![view1_iphonexspacegrey_portrait](https://user-images.githubusercontent.com/38988531/40573257-2bad9f74-6073-11e8-9362-c848fbff3507.png)
+![view2_iphonexspacegrey_portrait](https://user-images.githubusercontent.com/38988531/40573258-2bc62bac-6073-11e8-96c1-439b5627944d.png)
+![view3_iphonexspacegrey_portrait](https://user-images.githubusercontent.com/38988531/40573259-2becaaac-6073-11e8-91e4-c5d46f1c4d6d.png)
+![vew4_iphonexspacegrey_portrait](https://user-images.githubusercontent.com/38988531/40573256-2b953dd0-6073-11e8-8ca9-affc5db4bc1a.png)
