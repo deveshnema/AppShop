@@ -11,6 +11,15 @@ import UIKit
 private let appcellid = "appcellid"
 
 class CategoryCell : UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    var appCategory: AppCategory? {
+        didSet {
+            if let name = appCategory?.name {
+                categoryLabel.text = name
+            }
+            appsCollectionView.reloadData()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -21,11 +30,16 @@ class CategoryCell : UICollectionViewCell, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let count = appCategory?.apps?.count {
+            return count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: appcellid, for: indexPath) as! AppCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appcellid, for: indexPath) as! AppCell
+        cell.app = appCategory?.apps?[indexPath.item]
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -89,6 +103,23 @@ class CategoryCell : UICollectionViewCell, UICollectionViewDelegate, UICollectio
 }
 
 class AppCell : UICollectionViewCell {
+    var app: App? {
+        didSet {
+            if let name = app?.Name {
+                nameLabel.text = name
+            }
+            if let imageName = app?.ImageName {
+                imageView.image = UIImage(named: imageName)
+            }
+            if let price = app?.Price {
+                priceLabel.text = "$ \(price)"
+            }
+            if let category = app?.Category {
+                categoryLabel.text = category
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -175,7 +206,9 @@ class LargeCategoryCell : CategoryCell {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellid, for: indexPath) as! LargeAppCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: largeAppCellid, for: indexPath) as! LargeAppCell
+        cell.app = appCategory?.apps?[indexPath.item]
+        return cell
     }
     
     override func setupViews() {
@@ -205,7 +238,9 @@ class HeaderCell : CategoryCell {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellid, for: indexPath) as! BannerCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerCellid, for: indexPath) as! BannerCell
+        cell.app = appCategory?.apps?[indexPath.item]
+        return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

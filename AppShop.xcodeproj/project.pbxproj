@@ -13,6 +13,7 @@
 		955CA4F620B6705E007A5E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 955CA4F520B6705E007A5E73 /* Assets.xcassets */; };
 		955CA4F920B6705E007A5E73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955CA4F720B6705E007A5E73 /* LaunchScreen.storyboard */; };
 		955CA50120B67828007A5E73 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955CA50020B67828007A5E73 /* CategoryCell.swift */; };
+		95B8B92C20B90AF000F7ABE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B8B92B20B90AF000F7ABE1 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		955CA4F820B6705E007A5E73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		955CA4FA20B6705E007A5E73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		955CA50020B67828007A5E73 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		95B8B92B20B90AF000F7ABE1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				955CA4EE20B6705C007A5E73 /* AppDelegate.swift */,
 				955CA4F020B6705D007A5E73 /* FeaturedAppsController.swift */,
 				955CA50020B67828007A5E73 /* CategoryCell.swift */,
+				95B8B92B20B90AF000F7ABE1 /* Model.swift */,
 				955CA4F220B6705D007A5E73 /* Main.storyboard */,
 				955CA4F520B6705E007A5E73 /* Assets.xcassets */,
 				955CA4F720B6705E007A5E73 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				955CA4F120B6705D007A5E73 /* FeaturedAppsController.swift in Sources */,
 				955CA4EF20B6705C007A5E73 /* AppDelegate.swift in Sources */,
 				955CA50120B67828007A5E73 /* CategoryCell.swift in Sources */,
+				95B8B92C20B90AF000F7ABE1 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
