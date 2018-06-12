@@ -1,5 +1,7 @@
 # AppShop
-An iOS 11 App-Store style App to show "Featured Apps"
+An iOS (Swift 4) App-Store style App for showcasing "Featured Apps"
+
+(Recreating the design style only to enhance the learning experience)
 
 ## Detail
 - The App has been styled in the App-Store "Featured Apps" Style
